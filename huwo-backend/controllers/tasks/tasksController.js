@@ -11,6 +11,8 @@ exports.listAllTasks = function(req, res) {
 exports.createTask = function(req, res) {
 	const kk = new Task({
 		title: req.body.taskTitle,
+		description: req.body.taskDescription,
+		assignedTo: req.body.assignedUser,
 		createdBy: 'admin'
 	})
 	kk.save()

@@ -11,8 +11,8 @@ export default class Users extends Component {
 	}
 
 	componentDidMount() {
-		fetch('https://jsonplaceholder.typicode.com/users')
-			.then(response => response.json())
+		fetch('/api/users')
+			.then(r => r.json())
 			.then(users => this.setState({ users }))
 	}
 
@@ -20,7 +20,7 @@ export default class Users extends Component {
 		return (
 			<React.Fragment>
 				{this.state.users
-					? this.state.users.map(user => <User key={user.id} user={user} />)
+					? this.state.users.map(user => <User key={user._id} user={user} />)
 					: 'Loading Users'}
 			</React.Fragment>
 		)

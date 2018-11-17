@@ -1,6 +1,6 @@
 'use strict'
 
-const Tasks = require('./tasks/taskController')
+const Tasks = require('./tasks/tasksController')
 const Users = require('./users/usersController')
 
 const Controllers = {

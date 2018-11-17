@@ -21,6 +21,7 @@ export default class Tasks extends Component {
 	}
 
 	render() {
+		console.log('asda', this.state.tasks)
 		return this.state.tasks
 			? this.state.tasks.map(task => <Task key={task._id} task={task} />)
 			: 'Loading tasks'

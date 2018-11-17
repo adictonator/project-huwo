@@ -6,7 +6,7 @@ export default class UserDetails extends Component {
 	}
 
 	componentDidMount() {
-		fetch(`https://jsonplaceholder.typicode.com/users/${this.props.userID}`)
+		fetch(`/api/user/${this.props.userID}`)
 			.then(response => response.json())
 			.then(user => this.setState({ user }))
 	}
@@ -16,7 +16,7 @@ export default class UserDetails extends Component {
 		return (
 			<div>
 				{this.state.user
-					? `The user ID is ${this.state.user.id} and name is ${this.state.user.name}`
+					? `The user ID is ${this.state.user._id} and name is ${this.state.user.name}`
 					: `Loading data`}
 			</div>
 		)

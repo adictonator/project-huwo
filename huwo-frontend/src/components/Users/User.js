@@ -6,7 +6,7 @@ export default class User extends Component {
 		return (
 			<div>
 				and name {this.props.user.name}.
-				<Link to={`/user/${this.props.user.id}`}>View Details</Link>
+				<Link to={`/user/${this.props.user._id}`}>View Details</Link>
 			</div>
 		)
 	}

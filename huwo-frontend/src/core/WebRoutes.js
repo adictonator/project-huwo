@@ -8,6 +8,10 @@ export const WebRoutes = [
 		title: 'Users'
 	},
 	{
+		to: '/user/new',
+		title: 'Create User'
+	},
+	{
 		to: '/tasks',
 		title: 'Tasks'
 	},
