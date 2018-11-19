@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { doFetch } from '../../core/Helpers'
 
 export default class CreateTask extends Component {
 	constructor() {
@@ -21,20 +22,11 @@ export default class CreateTask extends Component {
 	}
 
 	fetchAllUsers = () => {
-		fetch('/api/users')
-			.then(response => response.json())
-			.then(users => this.setState({ users }))
+		doFetch('/api/users').then(users => this.setState({ users }))
 	}
 
 	submitData = data => {
-		console.log('asd', data)
-		fetch('/api/tasks', {
-			method: 'POST',
-			body: JSON.stringify(data),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		}).then(resp => console.log(resp))
+		doFetch('/api/tasks', 'POST', data)
 	}
 
 	componentDidMount() {
@@ -42,20 +34,22 @@ export default class CreateTask extends Component {
 	}
 
 	render() {
-		console.log('sdaas', this.state )
+		console.log('sdaas', this.state)
 		return (
 			<div>
 				<form onSubmit={e => this.createTask(e)}>
 					<input type="text" name="taskTitle" placeholder="Task Title" />
 					<input type="text" name="taskCategory" placeholder="Task Category" />
-					<textarea name="taskDescription" placeholder="Task description"></textarea>
+					<textarea name="taskDescription" placeholder="Task description" />
 					<select name="assignedUser">
 						<option value="">Assign to</option>
-						{
-							this.state.users ?
-							this.state.users.map(u => <option key={u._id} value={u._id}>`Name: {u.name} email {u.email}`</option>) :
-							''
-						}
+						{this.state.users
+							? this.state.users.map(u => (
+									<option key={u._id} value={u._id}>
+										`Name: {u.name} email {u.email}`
+									</option>
+							  ))
+							: ''}
 					</select>
 					<button type="submit">Create Task</button>
 				</form>

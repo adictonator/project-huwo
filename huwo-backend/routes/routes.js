@@ -2,6 +2,12 @@ const c = require('../controllers/controllers')
 
 module.exports = function(app) {
 	app
+
+		/**
+		 * Authentication Routes
+		 */
+		.post('/login', c.auth.login)
+
 		/**
 		 * Tasks routes.
 		 *
@@ -16,6 +22,7 @@ module.exports = function(app) {
 		 */
 		.get('/users', c.users.listAllUsers)
 		.get('/user/:id', c.users.getUser)
+		.get('/user/:id/tasks', c.users.getUserTasks)
 		.post('/users', c.users.createUser)
 		.delete('/users', c.users.deleteUser)
 }

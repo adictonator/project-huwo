@@ -5,7 +5,8 @@ const Users = require('./users/usersController')
 
 const Controllers = {
 	tasks: Tasks,
-	users: Users
+	users: Users,
+	auth: Auth,
 }
 
 module.exports = Controllers

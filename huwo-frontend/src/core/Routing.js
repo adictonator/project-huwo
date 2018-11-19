@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import Users from '../components/Users/Users'
 import Tasks from '../components/Tasks/Tasks'
+import Login from '../components/Auth/Login/Login'
 import UsersRouting from '../components/Users/UsersRouting'
 import TasksRouting from '../components/Tasks/TasksRouting'
 
@@ -9,7 +10,8 @@ export default class Routing extends Component {
 	render() {
 		const componentsMap = {
 			users: <Users />,
-			tasks: <Tasks />
+			tasks: <Tasks />,
+			login: <Login />
 		}
 
 		return (

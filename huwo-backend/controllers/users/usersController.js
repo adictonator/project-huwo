@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
 	User = mongoose.model('Users')
+	Tasks = mongoose.model('Tasks')
 
 exports.listAllUsers = function(req, res) {
 	User.find({}, function(err, user) {
@@ -12,6 +13,17 @@ exports.getUser = function(req, res) {
 	User.findById(req.params.id, function(err, user) {
 		if (err) res.send(err)
 		res.json(user)
+	})
+}
+
+exports.getUserTasks = function(req, res) {
+	User.findById(req.params.id, function(err, user) {
+		if (err) res.send(err)
+		Tasks.find({assignedTo: user._id}, function(err, tasks) {
+			if (err) res.send(err)
+
+			res.json(tasks)
+		})
 	})
 }
 

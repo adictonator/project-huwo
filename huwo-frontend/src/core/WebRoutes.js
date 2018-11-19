@@ -18,5 +18,9 @@ export const WebRoutes = [
 	{
 		to: '/task/new',
 		title: 'Create Tasks'
+	},
+	{
+		to: '/login',
+		title: 'Login'
 	}
 ]

@@ -12,6 +12,10 @@ const TaskSchema = new Schema({
 	assignedTo: {
 		type: Schema.ObjectId,
 	},
+	status: {
+		type: String,
+		default: 'pending',
+	},
 	createdBy: {
 		type: String,
 		required: 'important bruh'
